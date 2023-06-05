@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- React DOM이 element들을 붙일 곳 -->
+    <div id="root"></div>
+  </body>
+  <!-- React 임포트 => React의 목표는 html을 작성하지 않고 js만 이용해서 버튼을 만드는 것!!-->
+  <!-- 엔진 역할. interactive한 UI 만들 수 있도록 해줌.-->
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <!-- dom => React element를 HTML body에 넣을 수 있도록 해줌-->
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <!-- JSX => JSX 사용하려면 babel 이용해서 브라우저가 이해할 수 있도록 코드 변환 해줘야 한다!! -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+    const Title = () => (
+      <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+        Hello I'm a title
+      </h3>
+    );
+    // span 생성 (이전 방식)
+    /*const span = React.createElement(
+      "h3", // 1) 태그 이름
+      // { id: "sexy-span", style: { color: "red" } }, // 2) 속성
+      {
+        id: "title",
+        onMouseEnter: () => { // 속성 안에 eventlistener를 추가할 수 있음!
+          // 마우스가 영역에 들어가기만 하면 작동함
+          console.log("mouse enter");
+        },
+      },
+      "안녕 나는 span이야" // 3) 내용
+    );
+    // HTML에 넣기
+    ReactDOM.render(span, root);*/
+
+    const Button = () => (
+      <button
+        style={{
+          backgroundColor: "tomato",
+        }}
+        onClick={() => console.log("클릭됨")}
+      >
+        Click me
+      </button>
+    );
+    // React의 장점!! - 버튼을 만들면서 내용도 넣고, 이벤트도 달았다.
+    // const btn = React.createElement(
+    //   "button",
+    //   {
+    //     onClick: () => console.log("클릭됨"),
+    //     style: {
+    //       backgroundColor: "tomato",
+    //     },
+    //   },
+    //   "Click me"
+    // );
+
+    // const container = React.createElement("div", null, [Title, Button]);
+    // ReactDOM.render(container, root);
+    const Container = () => (
+      <div>
+        <Title />
+        <Button />
+      </div> // 사용자 정의로 만든 element의 첫 번째 글자는 대문자여야 함!!
+    );
+    ReactDOM.render(<Container />, root);
+  </script>
+</html>
