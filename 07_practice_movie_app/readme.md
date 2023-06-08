@@ -43,7 +43,16 @@
 
 <hr>
 
-## +) Publishing
+## +) Publishing (배포)
 1) ```npm i gh-pages``` : 결과물을 github pages에 업로드 해주는 패키지 (✅github pages는 html, css, javascript를 올리면 웹사이트로 만들어서 무료로 배포해줌) 
 2) ```npm run build``` : 우리 웹사이트의 production ready(코드가 압축되고 최적화) code를 생성
-3) package.json에 추가
+3) package.json 마지막에 추가   
+  ```  "homepage": "https://[git 사용자이름].github.io/[코드가 있는 git repository 이름]" ```
+  나의 경우는 https://HEOYUJUNG.github.io/react-for-beginners
+4) package.json의 scripts에 추가
+   ```
+    "deploy": "gh-pages -d build",  // gh-pages가 homepage에 적어놓은 웹사이트에 build 폴더를 업로드하도록 함
+    "predeploy": "npm run build"
+   ```
+5) ```npm run delpoy``` 하면 npm run build > react-scripts build > gh-pages -d build 차례로 실행
+6) https://HEOYUJUNG.github.io/react-for-beginners url로 들어가면 내가 만든 웹사이트가 보인다!!😲🤓👍
