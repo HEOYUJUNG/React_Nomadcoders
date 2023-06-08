@@ -13,7 +13,7 @@
 
 <hr>
 
-## 3) Movie App
+## 3) Movie App  👉 최종 배포본은 https://github.com/HEOYUJUNG/react-for-beginners
 - 영화 API : https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=year
   => 별점이 8.5 이상인 영화를 연도 순으로 정렬해서 가져오겠다!
 - then말고 async - await 방식 사용
